@@ -5,7 +5,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {normalize, PokeStyles} from '../theme/AppTheme';
 import {FadeInImage} from './FadeInImage';
 import {useState} from 'react';
-import {getColors} from 'react-native-image-colors';
+
 
 const WindowsWidth = Dimensions.get('window').width;
 type Props = {
@@ -15,11 +15,6 @@ type Props = {
 const PokemonCard = ({pokemon}: Props) => {
   const [BGcolor, setBGcolor] = useState('grey');
 
-  useEffect(() => {
-    getColors(pokemon.picture, {
-      fallback: 'grey',
-    }).then(colors => setBGcolor(colors.dominant || 'grey'));
-  }, []);
 
   return (
     <TouchableOpacity activeOpacity={0.9}>
